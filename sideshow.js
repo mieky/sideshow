@@ -1,12 +1,24 @@
 "use strict";
 
-let sites = [
-    "http://www.yle.fi",
-    "http://www.futurice.com",
-    "http://www.alupark.fi"
-];
+let config = Object.assign({
+    delay: 10,
+    sites: [
+        "http://www.yle.fi",
+        "http://www.futurice.com",
+        "http://www.alupark.fi"
+    ]
+}, parseParameters());
+console.log("Using configuration:", config);
 
-let delay = 5;
+function parseParameters() {
+    let params = window.location.search.substring(1);
+    return params.split("&").reduce((acc, curr) => {
+        let parts = curr.split("=");
+        let value = parts[1].split(",").map(v => decodeURIComponent(v));
+        acc[parts[0]] = value.length > 1 ? value : value[0];
+        return acc;
+    }, {});
+}
 
 function createIframes(sites) {
     return sites.map(s => {
@@ -23,7 +35,7 @@ function addIframes(iframes) {
     });
 }
 
-function startCycling(iframes) {
+function startCycling(iframes, delay) {
     let currentIndex = -1;
     nextFrame(iframes, currentIndex);
     return setInterval(() => {
@@ -40,6 +52,6 @@ function nextFrame(iframes, currentIndex) {
     return newIndex;
 }
 
-let iframes = createIframes(sites);
+let iframes = createIframes(config.sites);
 addIframes(iframes);
-startCycling(iframes);
+startCycling(iframes, config.delay);
