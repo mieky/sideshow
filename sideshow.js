@@ -2,6 +2,7 @@
 
 let config = Object.assign({
     delay: 10,
+    refresh: 1800,
     sites: [
         "http://www.yle.fi",
         "http://www.futurice.com",
@@ -52,6 +53,16 @@ function nextFrame(iframes, currentIndex) {
     return newIndex;
 }
 
+function startRefreshing(iframes, refresh) {
+    setInterval(() => {
+        iframes.forEach(i => i.src = i.src);
+    }, refresh * 1000);
+}
+
 let iframes = createIframes(config.sites);
 addIframes(iframes);
 startCycling(iframes, config.delay);
+
+if (config.refresh > 0) {
+    startRefreshing(iframes, config.refresh);
+}
