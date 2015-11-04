@@ -33,7 +33,7 @@ This is a common problem, and for good reasons. Many sites set an [X-Frame-Optio
 
 If you love speed and danger and are running Chrome, you can **at your own risk** work around this by either consciously [installing an extension that disables this security mechanism](https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe), or starting the browser with `--disable-web-security`. After this, you should be able to use sideshow with i.e. the GitHub status page.
 
-### Use URLs with special characters?
+#### Use URLs with special characters?
 
 Worry not - you can URL encode your URLs, and sideshow knows to decode them. For example, try pasting this on your browser location bar:
 
