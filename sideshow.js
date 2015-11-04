@@ -11,7 +11,7 @@ let config = Object.assign({
 console.log("Using configuration:", config);
 
 function parseParameters() {
-    let params = window.location.search.substring(1);
+    let params = window.location.search.substring(1) || "=";
     return params.split("&").reduce((acc, curr) => {
         let parts = curr.split("=");
         let value = parts[1].split(",").map(v => decodeURIComponent(v));
