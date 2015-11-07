@@ -4,6 +4,8 @@ A website cycler for dashboard displays.
 
 Simple to install & use, effortless to customize. Just open the page with a number of parameters and you're done.
 
+<iframe width="500" height="300" src="http://mike.fi/sideshow/?delay=3&sites=http://cdn.gifbay.com/2013/01/1_for_perfect_loop-26256.gif,http://38.media.tumblr.com/aed842e1fa863d6e991def1b9505d77f/tumblr_nx1lhqQZDl1rxpytqo1_400.gif"></iframe>
+
 ## Live examples
 
 Three sites, 5-second delay, 30-second refresh:<br /> [http://mike.fi/sideshow/?delay=5&refresh=30&sites=url1,url2,url3](http://mike.fi/sideshow/?delay=5&refresh=30&sites=http://yle.fi/uutiset/news/,http://www.futurice.com,http://www.alupark.fi)
