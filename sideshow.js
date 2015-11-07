@@ -10,8 +10,14 @@ var defaultConfig = {
     ]
 };
 
-var config = mergeConfiguration(defaultConfig, parseParameters());
-console.log("Using configuration:", config);
+function getGifName() {
+    var p = (window.location.search.substring(1) || "=").split("=");
+    var gifName = p[1];
+    if (p[0] === "gif" && gifName.substring(gifName.lastIndexOf(".")) === ".gif") {
+        return gifName;
+    }
+    return null;
+}
 
 function mergeConfiguration() {
     var args = [].slice.call(arguments, 0);
@@ -70,18 +76,33 @@ function nextFrame(iframes, currentIndex) {
     return newIndex;
 }
 
-function startRefreshing(iframes, refresh) {
-    setInterval(function() {
-        iframes.forEach(function(i) {
-            return i.src = i.src;
-        });
-    }, refresh * 1000);
+function startGifMode() {
+    console.log("GIF mode!");
+    var el = document.createElement("div");
+    el.innerHTML = '<div class="fullscreen" style="background-image: url(' + gifName + ')"></div>';
+    document.body.appendChild(el.firstChild);
 }
 
-var iframes = createIframes(config.sites);
-addIframes(iframes);
-startCycling(iframes, config.delay);
+function startCycleMode() {
+    var config = mergeConfiguration(defaultConfig, parseParameters());
+    console.log("Cycling sites with configuration:", config);
 
-if (config.refresh > 0) {
-    startRefreshing(iframes, config.refresh);
+    var iframes = createIframes(config.sites);
+    addIframes(iframes);
+    startCycling(iframes, config.delay);
+
+    if (config.refresh > 0) {
+        setInterval(function() {
+            iframes.forEach(function(i) {
+                return i.src = i.src;
+            });
+        }, config.refresh * 1000);
+    }
+}
+
+var gifName = getGifName();
+if (gifName !== null) {
+    startGifMode();
+} else {
+    startCycleMode();
 }

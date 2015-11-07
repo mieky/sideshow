@@ -16,8 +16,12 @@ iframe {
     right: 0;
 }
 
-.settings {
+.fullscreen {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center center;
 }
