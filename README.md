@@ -2,25 +2,30 @@
 
 A website cycler for dashboard displays.
 
-Simple to install & use, effortless to customize. Just open the page with a number of parameters and you're done.
+Simple to install & use, effortless to customize. Just open the page with a number of parameters and you're done. Sideshow should work on any modern browser.
 
 ## Live examples
 
-Three sites, 5-second delay, 30-second refresh:<br /> [http://mike.fi/sideshow/?delay=5&refresh=30&sites=url1,url2,url3](http://mike.fi/sideshow/?delay=5&refresh=30&sites=http://yle.fi/uutiset/news/,http://www.futurice.com,http://www.alupark.fi)
+Three sites, 5-second delay, 30-second refresh:<br /> [delay=5&refresh=30&sites=url1,url2,url3](http://mike.fi/sideshow/?delay=5&refresh=30&sites=http://yle.fi/uutiset/news/,http://www.futurice.com,http://www.alupark.fi)
 
-Two sites, one-minute delay, half-an-hour refresh (default):<br /> [http://mike.fi/sideshow/?delay=60&sites=url1,url2](http://mike.fi/sideshow/?delay=60&sites=http://www.futurice.com,http://www.alupark.fi)
+Two sites, one-minute delay, half-an-hour refresh (default):<br /> [delay=60&sites=url1,url2](http://mike.fi/sideshow/?delay=60&sites=http://www.futurice.com,http://www.alupark.fi)
 
 Showing URLs with special characters by URI-encoding them:<br />
-[http://mike.fi/sideshow/?delay=60&sites=someEncodedUrl](http://mike.fi/sideshow/?delay=5&sites=http://mike.fi/sideshow/?delay=5&sites=https://www.djangopackages.com/search/%3Fq%3D%F0%9F%98%80%20emojis%2C%20baby)
+[delay=60&sites=someEncodedUrl](http://mike.fi/sideshow/?delay=5&sites=http://mike.fi/sideshow/?delay=5&sites=https://www.djangopackages.com/search/%3Fq%3D%F0%9F%98%80%20emojis%2C%20baby)
 
 You can also link to a .gif to have it display fullscreen!<br />
-[http://mike.fi/sideshow/?delay=5&sites=gif1,gif2](http://mike.fi/sideshow/?delay=3&sites=http://cdn.gifbay.com/2013/01/1_for_perfect_loop-26256.gif,http://38.media.tumblr.com/aed842e1fa863d6e991def1b9505d77f/tumblr_nx1lhqQZDl1rxpytqo1_400.gif)
+[delay=5&sites=gif1,gif2](http://mike.fi/sideshow/?delay=3&sites=http://cdn.gifbay.com/2013/01/1_for_perfect_loop-26256.gif,http://38.media.tumblr.com/aed842e1fa863d6e991def1b9505d77f/tumblr_nx1lhqQZDl1rxpytqo1_400.gif)
 
 ## Usage
 
 Navigate to the index.html, setting some query parameters:
 
- `http://mike.fi/sideshow/?delay=5&refresh=900&sites=http://www.yle.fi,http://www.futurice.com,http://www.alupark.fi`
+```
+http://mike.fi/sideshow/?
+    delay=5
+    &refresh=900
+    &sites=http://www.yle.fi,http://www.futurice.com,http://www.alupark.fi
+```
 
 - `delay` specifies seconds to wait before changing tab (defaults to 10)
 - `refresh` specifies seconds between reloading all pages (defaults to 1800, set 0 to disable)
@@ -41,7 +46,7 @@ Just drop the files to a web server. That's it. You might as well use it from th
 
 This is a common problem, and for good reasons. Many sites set an [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options) response header to tell the browser that this site should not be allowed inside a frame, and the browsers respect this.
 
-If you love speed and danger and are running Chrome, you can **at your own risk** work around this by either consciously [installing an extension that disables this security mechanism](https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe), or starting the browser with `--disable-web-security`. After this, you should be able to use sideshow with i.e. the GitHub status page.
+If you love speed and danger and are running Chrome, you can **at your own risk** work around this by either consciously [installing an extension that disables this security mechanism](https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe), or starting Chrome with `--disable-web-security`. After this, you should be able to use sideshow with i.e. the GitHub status page.
 
 ### Use URLs with special characters?
 
