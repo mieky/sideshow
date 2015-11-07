@@ -6,6 +6,7 @@ Sideshow is like a *dashboard-as-a-service*, where instead of adding widgets you
 
 Sideshow is easy to use and customize. Just open the HTML page with a number of parameters and you're done. Should work with any modern browser.
 
+![Screenshot](https://github.com/mieky/sideshow/raw/master/sideshow-example.gif)
 
 ## Live examples
 
