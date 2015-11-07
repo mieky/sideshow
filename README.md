@@ -1,8 +1,8 @@
 # sideshow
 
-**A website cycler for dashboard displays**
+**A minimalistic dashboard-as-a-service**
 
-Sideshow is like a *dashboard-as-a-service*, where instead of adding widgets you can have it show the sites you choose. It's perfect for showing bus timetables, weather and server status pages on your office kitchen, or funny GIFs in your screen saver.
+Sideshow is like a dashboard application, where instead of adding widgets you can have it show the sites you choose. It's perfect for showing bus timetables, weather and server status pages on your office kitchen, or funny GIFs in your screen saver.
 
 Sideshow is easy to use and customize. Just open the HTML page with a number of parameters and you're done. Should work with any modern browser.
 
