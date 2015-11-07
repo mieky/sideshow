@@ -10,10 +10,14 @@ var defaultConfig = {
     ]
 };
 
-function getGifName() {
+function isGifName(str) {
+    return str.substring(str.lastIndexOf(".")) === ".gif";
+}
+
+function getGifNameFromParams() {
     var p = (window.location.search.substring(1) || "=").split("=");
     var gifName = p[1];
-    if (p[0] === "gif" && gifName.substring(gifName.lastIndexOf(".")) === ".gif") {
+    if (p[0] === "gif" && isGifName(gifName)) {
         return gifName;
     }
     return null;
@@ -45,9 +49,14 @@ function createIframes(sites) {
     if (typeof sites !== "object") {
         sites = [sites];
     }
-    return sites.map(function(s) {
+    return sites.map(function(url) {
         var iframe = document.createElement("iframe");
-        iframe.src = s;
+        if (isGifName(url)) {
+            var h = window.location.href,
+                s = window.location.search;
+            url = h.substring(0, h.indexOf(s)) + "?gif=" + url;
+        }
+        iframe.src = url;
         return iframe;
     });
 }
@@ -100,7 +109,7 @@ function startCycleMode() {
     }
 }
 
-var gifName = getGifName();
+var gifName = getGifNameFromParams();
 if (gifName !== null) {
     startGifMode();
 } else {

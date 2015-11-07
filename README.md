@@ -6,12 +6,15 @@ Simple to install & use, effortless to customize. Just open the page with a numb
 
 ## Live examples
 
-Three sites, 5-second delay, 30-second refresh:<br /> [http://mike.fi/sideshow/?delay=5&refresh=30&sites=site1,site2,site3](http://mike.fi/sideshow/?delay=5&refresh=30&sites=http://yle.fi/uutiset/news/,http://www.futurice.com,http://www.alupark.fi)
+Three sites, 5-second delay, 30-second refresh:<br /> [http://mike.fi/sideshow/?delay=5&refresh=30&sites=url1,url2,url3](http://mike.fi/sideshow/?delay=5&refresh=30&sites=http://yle.fi/uutiset/news/,http://www.futurice.com,http://www.alupark.fi)
 
-Two sites, one-minute delay, half-an-hour refresh (default):<br /> [http://mike.fi/sideshow/?delay=60&sites=site1,site2](http://mike.fi/sideshow/?delay=60&sites=http://www.futurice.com,http://www.alupark.fi)
+Two sites, one-minute delay, half-an-hour refresh (default):<br /> [http://mike.fi/sideshow/?delay=60&sites=url1,url2](http://mike.fi/sideshow/?delay=60&sites=http://www.futurice.com,http://www.alupark.fi)
 
-Using URLs with special characters:<br />
-http://mike.fi/sideshow/?delay=5&sites=http://mike.fi/sideshow/?delay=5&sites=https://www.djangopackages.com/search/%3Fq%3D%F0%9F%98%80%20emojis%2C%20baby
+Showing URLs with special characters by URI-encoding them:<br />
+[http://mike.fi/sideshow/?delay=60&sites=someEncodedUrl](http://mike.fi/sideshow/?delay=5&sites=http://mike.fi/sideshow/?delay=5&sites=https://www.djangopackages.com/search/%3Fq%3D%F0%9F%98%80%20emojis%2C%20baby)
+
+You can also link to a .gif to have it display fullscreen!<br />
+[http://mike.fi/sideshow/?delay=5&sites=gif1,gif2](http://mike.fi/sideshow/?delay=3&sites=http://cdn.gifbay.com/2013/01/1_for_perfect_loop-26256.gif,http://38.media.tumblr.com/aed842e1fa863d6e991def1b9505d77f/tumblr_nx1lhqQZDl1rxpytqo1_400.gif)
 
 ## Usage
 
@@ -46,9 +49,12 @@ Worry not - you can URL encode your URLs, and sideshow knows to decode them. For
 
 `javascript:alert(encodeURIComponent("http://mysite.com/?complexParameters=true"))`
 
+### Using it in a screen saver?
+
+That's a great idea. In OS X you can use a [WebView screen saver](https://github.com/liquidx/webviewscreensaver) and then configure it with sideshow URLs. Just look up some cool [perfect loops](https://www.reddit.com/r/perfectloops) and your screen saver will be the coolest around.
+
 ## Todo
 
-- Support fullscreen animated .gifs as parameters
 - Add a generator page for easily populating the parameters
 
 ## Acknowledgements
