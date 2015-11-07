@@ -1,25 +1,32 @@
 # sideshow
 
-An easily customizable drop-in-place HTML page for cycling between websites. Useful for dashboard
-displays.
+A website cycler for dashboard displays.
 
-**Requires Chrome 46+, or any modern ES6-compliant browser.**
+Simple to install & use, effortless to customize. Just open the page with a number of parameters and you're done.
 
-## Live demo
+## Live examples
 
-[http://mike.fi/sideshow](http://mike.fi/sideshow/?delay=5&refresh=30&sites=http://yle.fi/uutiset/news/,http://www.futurice.com,http://www.alupark.fi)
+Three sites, 5-second delay, 30-second refresh:<br /> [http://mike.fi/sideshow/?delay=5&refresh=30&sites=site1,site2,site3](http://mike.fi/sideshow/?delay=5&refresh=30&sites=http://yle.fi/uutiset/news/,http://www.futurice.com,http://www.alupark.fi)
 
-You can actually use this URL for your needs, because no data gets saved on a server. It's just static HTML files.
+Two sites, one-minute delay, half-an-hour refresh (default):<br /> [http://mike.fi/sideshow/?delay=60&sites=site1,site2](http://mike.fi/sideshow/?delay=60&sites=http://www.futurice.com,http://www.alupark.fi)
+
+Using URLs with special characters:<br />
+http://mike.fi/sideshow/?delay=5&sites=http://mike.fi/sideshow/?delay=5&sites=https://www.djangopackages.com/search/%3Fq%3D%F0%9F%98%80%20emojis%2C%20baby
 
 ## Usage
 
-Just navigate to the index.html, setting some query parameters:
+Navigate to the index.html, setting some query parameters:
 
- `http://mike.fi/sideshow/?delay=5&sites=http://www.yle.fi,http://www.futurice.com,http://www.alupark.fi`
+ `http://mike.fi/sideshow/?delay=5&refresh=900&sites=http://www.yle.fi,http://www.futurice.com,http://www.alupark.fi`
 
 - `delay` specifies seconds to wait before changing tab (defaults to 10)
 - `refresh` specifies seconds between reloading all pages (defaults to 1800, set 0 to disable)
 - `sites` is a comma-separated list of sites to cycle. URI encoding is supported.
+
+
+You can actually use the URL http://mike.fi/sideshow for your needs, because no data gets saved on a server. It's just static HTML files served via GitHub pages.
+
+Also see the note on [browser security restrictions.](#work-around-security-restrictions)
 
 ## How to...
 
@@ -41,8 +48,8 @@ Worry not - you can URL encode your URLs, and sideshow knows to decode them. For
 
 ## Todo
 
-- Support fullscreen animated .gifs
-- ES5 support for those legacy (*tee hee*) browsers
+- Support fullscreen animated .gifs as parameters
+- Add a generator page for easily populating the parameters
 
 ## Acknowledgements
 
