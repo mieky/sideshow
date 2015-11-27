@@ -28,7 +28,7 @@ Navigate to the index.html, setting some query parameters:
 http://mike.fi/sideshow/?
     delay=5
     &refresh=900
-    &sites=&sites=http://chilicorn.org,http://www.futurice.com
+    &sites=http://chilicorn.org,http://www.futurice.com
 ```
 
 - `delay` specifies seconds to wait before changing tab (defaults to 10)
