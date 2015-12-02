@@ -6,20 +6,42 @@
 <body>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript">
-    $.getJSON("https://www.reddit.com/r/perfectloops/.json", function(res) {
-        var urls = res.data.children
-            .filter(function(c) {
-                return c.data.media && c.data.media.oembed;
+
+    function suffix(str) {
+        return str.substring(str.lastIndexOf("."));
+    }
+
+    function extractGifUrls(res) {
+        return res.filter(function(c) {
+                return c.data.url;
             })
             .map(function(c) {
-                var url = c.data.media.oembed.thumbnail_url;
-                return url.substring(0, url.lastIndexOf(".gif") + 4);
+                return c.data.url;
+            })
+            .filter(function(url) {
+                return suffix(url) === ".gif" || suffix(url) === ".gifv";
+            }).map(function(url) {
+                if (suffix(url) === ".gifv") {
+                    return url.substring(0, url.lastIndexOf(".gifv")) + ".gif";
+                }
+                return url;
             });
+    }
 
+    function redirectToUrls(urls) {
         var targetUrl = window.location.href;
         targetUrl = targetUrl.substring(0, targetUrl.indexOf("perfectloops")) + "?delay=5&sites=" + urls;
         window.location.href = targetUrl;
-    });
+    }
+
+    function process(res) {
+        var urls = extractGifUrls(res.data.children);
+        console.log(urls);
+        redirectToUrls(urls);
+    }
+
+    $.getJSON("https://www.reddit.com/r/perfectloops/.json", process);
+
     </script>
 </body>
 </html>
